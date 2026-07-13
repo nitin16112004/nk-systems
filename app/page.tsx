@@ -1,0 +1,55 @@
+"use client"
+
+import { useEffect } from "react"
+import { motion } from "framer-motion"
+import Hero from '@/components/Hero'
+import About from '@/components/sections/About'
+import HowIBuild from '@/components/sections/HowIBuild'
+import Projects from '@/components/sections/Projects'
+import WhatIBuild from '@/components/sections/WhatIBuild'
+
+import Skills from '@/components/sections/Skills'
+import Metrics from '@/components/sections/Metrics'
+import Timeline from '@/components/sections/Timeline'
+import OpenSource from '@/components/sections/OpenSource'
+import Contact from '@/components/sections/Contact'
+
+export default function Home() {
+  // Scroll to top on page load/reload
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  return (
+    <>
+      <main className="relative text-white overflow-hidden">
+        <Hero />
+        <About />
+        <HowIBuild />
+        <Metrics />
+        <WhatIBuild />
+        <Timeline />
+        <Projects />
+        <OpenSource />
+        <Skills />
+        <Contact />
+
+        {/* LARGE BOTTOM BRANDING TEXT */}
+        <section className="relative py-24 md:py-40 flex justify-center items-center overflow-hidden pointer-events-none select-none">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="relative z-10"
+          >
+            <h2 className="text-[clamp(2.7rem,13vw,12rem)] whitespace-nowrap font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white/10 to-transparent" aria-label="Nitin Kumar">
+              NITIN KUMAR
+            </h2>
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20" />
+        </section>
+      </main>
+    </>
+  )
+}
